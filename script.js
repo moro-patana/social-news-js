@@ -38,18 +38,23 @@ const addNewLink = () => {
     const newLinkAuthor = prompt("Who is the author?");
 
     // Condition if the user enter url which does not starts with `http`//
-
-    if (!newLinkUrl.startsWith(`http`)) {
-        console.log(`http:` + newLinkUrl);
-    }
-    let newLink = {
-        title: newLinkTitle,
-        url: newLinkUrl,
-        author: newLinkAuthor,
+    let url = (`http://` + newLinkUrl);
+    for (let i = 0; i < url.length; i++) {
+    if (!newLinkUrl.startsWith(`http://`)) {
+        let newLink = {
+            title: newLinkTitle,
+            url: url,
+            author: newLinkAuthor,
+        };
+        link.push(newLink);
+        return;
     };
-    link.push(newLink);
-    return;
-};
+    
+    alert(url);
+    }
+    }
+
+
 
 
 // All of the option to guide the user//
@@ -71,6 +76,9 @@ while (menuChoice !== 0) {
         case 2:
             addNewLink();
             break;
+
+// Choose the index to delete//
+
         case 3:
             let indexToDelete = Number(prompt(`Enter the index to delete`));
             let deletedLink = link.splice(indexToDelete--, 1);
@@ -82,5 +90,5 @@ while (menuChoice !== 0) {
     }
     menuChoice = Number(prompt(menuList));
 };
-// The program is finished//
-alert(`Bye bye`);
+// The program finished//
+alert(`Thank you for using this program`);
