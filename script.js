@@ -33,30 +33,23 @@ author : ${link[i].author}`;
 };
 // Add new link to the list//
 const addNewLink = () => {
-    const newLinkTitle = prompt("what is your new link's title?");
-    const newLinkUrl = prompt("What is your url?");
-    const newLinkAuthor = prompt("Who is the author?");
+    let newLinkTitle = prompt("what is your new link's title?");
+    let newLinkUrl = prompt("What is your url?");
+    let newLinkAuthor = prompt("Who is the author?");
 
     // Condition if the user enter url which does not starts with `http`//
-    let url = (`http://` + newLinkUrl);
-    for (let i = 0; i < url.length; i++) {
     if (!newLinkUrl.startsWith(`http://`)) {
+        newLinkUrl = `http://${newLinkUrl}`;
+}
         let newLink = {
             title: newLinkTitle,
-            url: url,
+            url: newLinkUrl,
             author: newLinkAuthor,
         };
         link.push(newLink);
         return;
     };
     
-    alert(url);
-    }
-    }
-
-
-
-
 // All of the option to guide the user//
 
 const menuList = `Choose an option: 
